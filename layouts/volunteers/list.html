@@ -1,0 +1,50 @@
+{{ define "main" }}
+
+{{ partial "page-title.html" . }}
+
+{{ $volunteers := site.Data.volunteers }}
+{{ $roles := slice }}{{ range $volunteers }}{{ $roles = $roles | append .role }}{{ end }}{{ $roles = uniq $roles }}
+{{ $skills := slice }}{{ range $volunteers }}{{ range .skills }}{{ $skills = $skills | append . }}{{ end }}{{ end }}{{ $skills = uniq $skills }}
+{{ $orgs := slice }}{{ range $volunteers }}{{ $orgs = $orgs | append .organisation }}{{ end }}{{ $orgs = uniq $orgs }}
+
+<div class="page-wrapper">
+  <div class="container">
+    <div class="ic-listing">
+
+      {{/* SearchBar + FilterPanel */}}
+      <div class="dir-controls">
+        <div class="dir-search">
+          <span aria-hidden="true">&gt;</span>
+          <input type="search" id="dir-search" placeholder="Search name, role, skill, project…" aria-label="Search contributors" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="dir-filters" id="dir-filters">
+          <span class="dir-filter-label">role</span>
+          {{ range $roles }}<button class="dir-chip" data-filter="role" data-value="{{ . | lower }}">{{ . | lower }}</button>{{ end }}
+          <span class="dir-filter-label">skill</span>
+          {{ range $skills }}<button class="dir-chip" data-filter="skills" data-value="{{ . | lower }}">{{ . | lower }}</button>{{ end }}
+          {{ if gt (len $orgs) 1 }}
+          <span class="dir-filter-label">organisation</span>
+          {{ range $orgs }}<button class="dir-chip" data-filter="org" data-value="{{ . | lower }}">{{ . | lower }}</button>{{ end }}
+          {{ end }}
+        </div>
+      </div>
+
+      <p class="dir-count" id="dir-count" aria-live="polite">{{ len $volunteers }} contributors</p>
+
+      <div class="row" id="dir-grid" style="row-gap:24px;">
+        {{ range $i, $v := $volunteers }}
+        <div class="col-md-4 col-sm-6 d-flex dir-item">
+          {{ partial "volunteer-card.html" (dict "v" $v "index" $i) }}
+        </div>
+        {{ end }}
+      </div>
+
+      <p class="dir-empty" id="dir-empty" hidden>no keys match — try another word_</p>
+
+    </div>
+  </div>
+</div>
+
+{{ $js := resources.Get "js/directory.js" | minify | fingerprint "sha512" }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>
+{{ end }}

@@ -1,0 +1,80 @@
+######################## ICDirectory ####################################
+# The digital identity and discovery platform for Isolated Command
+# contributors. Standalone product on the Publisher theme.
+baseURL = "https://directory.isolatedcommand.com/"
+title = "ICDirectory"
+enableRobotsTXT = true
+timeZone = "Asia/Singapore"
+summaryLength = 10
+
+[module]
+[[module.imports]]
+path = "github.com/isolatedcommand/Publisher"
+
+[build]
+noJSConfigInAssets = false
+useResourceCacheWhen = 'fallback'
+[build.buildStats]
+enable = true
+
+############################# Params ####################################
+[params]
+logo = ""                       # suppress the theme's default banner logo
+logo_darkmode = ""
+logo_square = ""
+logo_text = "Directory"       # navbar ::before supplies the "IC" keycap pill
+description = "Meet the people behind Isolated Command — the volunteers, builders, and contributors creating digital solutions and community impact."
+author = "Isolated Command"
+footer_status = "directory online"
+navbar_fixed = false
+particle_grid = true
+
+[params.palette]
+enable = true
+trigger_label = "find"
+placeholder = "Find a contributor…"
+[[params.palette.actions]]
+label = "Explore volunteers"
+link = "volunteers/"
+hint = "browse"
+[[params.palette.actions]]
+label = "Join Isolated Command"
+link = "https://isolatedcommand.com/connect-now/"
+hint = "join"
+
+[[params.navbar_buttons]]
+enable = true
+label = "Join Us"
+link = "https://isolatedcommand.com/connect-now/"
+
+[[params.social]]
+title = "GitHub"
+icon = "fab fa-github"
+link = "https://github.com/isolatedcommand"
+[[params.social]]
+title = "Instagram"
+icon = "fab fa-instagram"
+link = "https://www.instagram.com/isolatedcommand"
+
+############################# Menus #####################################
+[[menu.main]]
+name = "Volunteers"
+url = "volunteers/"
+weight = 1
+[[menu.main]]
+name = "Isolated Command"
+url = "https://isolatedcommand.com"
+weight = 2
+
+[[menu.footer]]
+name = "Volunteers"
+url = "volunteers/"
+weight = 1
+[[menu.footer]]
+name = "Isolated Command"
+url = "https://isolatedcommand.com"
+weight = 2
+[[menu.footer]]
+name = "Join Us"
+url = "https://isolatedcommand.com/connect-now/"
+weight = 3

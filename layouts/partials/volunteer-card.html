@@ -1,0 +1,32 @@
+{{/* VolunteerCard — contributor profile key.
+     .v = volunteer record, .index = position (ghost numeral).
+     data-* attributes drive the client-side search + filters. */}}
+{{ $v := .v }}
+<a class="post-card volunteer-card" href="{{ printf "volunteers/%s/" $v.slug | relURL }}"
+   data-name="{{ $v.name | lower }}"
+   data-role="{{ $v.role | lower }}"
+   data-org="{{ $v.organisation | lower }}"
+   data-skills="{{ delimit $v.skills "," | lower }}"
+   data-projects="{{ delimit $v.projects "," | lower }}">
+  <span class="ic-key-index" aria-hidden="true">{{ printf "%02d" (add .index 1) }}</span>
+
+  <div class="volunteer-card-id">
+    <span class="ic-avatar ic-avatar--{{ $v.accent | default "lime" }} volunteer-avatar">{{ substr $v.name 0 1 | upper }}</span>
+    <div>
+      <h3 class="post-title">{{ $v.name }}</h3>
+      <p class="volunteer-role">&gt; {{ $v.role | lower }}</p>
+    </div>
+  </div>
+
+  <p class="post-summary">{{ $v.tagline }}</p>
+
+  <div class="volunteer-skills">
+    {{ range first 4 $v.skills }}<span class="ic-tag">{{ . }}</span>{{ end }}
+  </div>
+
+  <div class="post-card-foot">
+    <span class="ic-badge ic-badge--violet">{{ $v.organisation }}</span>
+    <span class="post-meta-date">{{ len $v.projects }} project{{ if ne (len $v.projects) 1 }}s{{ end }}</span>
+    <span class="post-card-cta">view →</span>
+  </div>
+</a>

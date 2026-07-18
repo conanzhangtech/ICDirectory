@@ -1,0 +1,57 @@
+{{ define "main" }}
+
+{{ $volunteers := site.Data.volunteers }}
+{{ $skills := slice }}{{ range $volunteers }}{{ range .skills }}{{ $skills = $skills | append . }}{{ end }}{{ end }}{{ $skills = uniq $skills }}
+{{ $projects := slice }}{{ range $volunteers }}{{ range .projects }}{{ $projects = $projects | append . }}{{ end }}{{ end }}{{ $projects = uniq $projects }}
+
+<!-- hero -->
+<section class="slider ic-hero">
+  <div class="glow-behind" aria-hidden="true"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <p class="ic-hero-eyebrow reveal-up">every key has a person behind it</p>
+          <h1 class="ic-hero-headline reveal-up d-1">Meet the people behind Isolated Command.</h1>
+          <h4 class="ic-hero-sub reveal-up d-2">Discover the volunteers, builders, and contributors creating digital solutions and community impact.</h4>
+          <div class="ic-hero-actions reveal-up d-3">
+            <a href="{{ `volunteers/` | relURL }}" class="btn btn-main">Explore Volunteers</a>
+            <a href="https://isolatedcommand.com/connect-now/" class="btn btn-ghost" target="_blank" rel="noopener">Join Isolated Command</a>
+          </div>
+          <p class="reveal-up d-4" style="margin-top:36px;">
+            <span class="ic-activity">{{ len $volunteers }} contributors &middot; {{ len $projects }} projects &middot; {{ len $skills }} skills indexed</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {{/* the directory IS people — their roles float as keys */}}
+    <div class="ic-hero-keys" aria-hidden="true">
+      {{ range $i, $v := first 4 $volunteers }}
+      <div class="ic-key-note reveal-up d-{{ add (mod $i 4) 2 }}">
+        <a class="ic-key ic-key--{{ $v.accent | default `ghost` }} ic-key--float{{ with mod $i 3 }}-{{ add . 1 }}{{ end }}" href="{{ printf `volunteers/%s/` $v.slug | relURL }}" style="pointer-events:auto;">{{ index (split $v.name " ") 0 | lower }}</a>
+        <span class="ic-key-caption">{{ $v.role | lower }}</span>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- featured contributors -->
+<section class="section-sm">
+  <div class="container">
+    <div class="ic-listing">
+      <h2 class="ic-title-key">Contributors</h2>
+      <p style="margin:6px 0 40px; max-width:60ch; color:var(--color-text-muted);">A young builder network — every profile is a portfolio, not an employee record.</p>
+      <div class="row" style="row-gap:24px;">
+        {{ range $i, $v := first 3 $volunteers }}
+        <div class="col-md-4 d-flex">
+          {{ partial "volunteer-card.html" (dict "v" $v "index" $i) }}
+        </div>
+        {{ end }}
+      </div>
+      <p style="margin-top:8px;"><a class="btn-view-more" href="{{ `volunteers/` | relURL }}">browse the full directory</a></p>
+    </div>
+  </div>
+</section>
+{{ end }}

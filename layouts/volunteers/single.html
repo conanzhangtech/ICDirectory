@@ -1,0 +1,64 @@
+{{ define "main" }}
+{{ $v := .Params }}
+
+<section class="ic-page-hero">
+  <div class="container">
+    <div class="ic-page-hero-grid">
+      <div class="ic-page-hero-copy">
+        <div class="profile-id reveal-up">
+          <span class="ic-avatar ic-avatar--{{ $v.accent | default "lime" }} profile-avatar">{{ substr .Title 0 1 | upper }}</span>
+          <div>
+            <p class="ic-hero-eyebrow" style="margin-bottom:6px;">{{ $v.role | lower }}</p>
+            <h1 class="ic-page-hero-title" style="margin-bottom:6px;">{{ .Title }}</h1>
+            <p class="ic-page-hero-desc" style="margin-bottom:0;">{{ $v.tagline }}</p>
+          </div>
+        </div>
+        <div class="ic-page-hero-meta reveal-up d-1" style="margin-top:22px;">
+          <span class="ic-badge ic-badge--violet">{{ $v.organisation }}</span>
+          {{ range $v.achievements }}<span class="ic-badge">🏆 {{ . }}</span>{{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-wrapper">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-8">
+        <h2 class="ic-title-key">What I contributed</h2>
+        <p style="max-width:64ch; color:var(--color-text-muted); margin:14px 0 44px;">{{ $v.contribution }}</p>
+
+        <h2 class="ic-title-key">Journey</h2>
+        <div class="ic-pipeline" style="margin-top:26px;">
+          {{ range $v.journey }}
+          <div class="ic-stage">
+            <p class="ic-stage-code">{{ .date }}</p>
+            <h3>{{ .title }}</h3>
+            <p style="color:var(--color-text-muted);">{{ .detail }}</p>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="profile-panel">
+          <p class="ic-faq-side-heading">skills</p>
+          <div class="volunteer-skills" style="margin-bottom:26px;">
+            {{ range $v.skills }}<span class="ic-tag">{{ . }}</span>{{ end }}
+          </div>
+
+          <p class="ic-faq-side-heading">projects I worked on</p>
+          <ul class="profile-projects">
+            {{ range $v.projects }}<li>{{ . }}</li>{{ end }}
+          </ul>
+
+          <a href="{{ `volunteers/` | relURL }}" class="btn-view-more" style="display:inline-block;margin-top:18px;">back to directory</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "conanzhangtech",
+    "name": "Conan ZHANG",
+    "organisation": "Isolated Command",
+    "role": "Project Lead",
+    "accent": "lime",
+    "tagline": "Building the platforms the community runs on.",
+    "contribution": "Leads Isolated Command's digital infrastructure — the Publisher web platform, ICGo link shortener, and the Volunteer Management System. Turns community needs into small, auditable systems anyone can contribute to.",
+    "skills": ["Cybersecurity", "Cloudflare", "Hugo", "Go", "AI"],
+    "projects": ["ICGo", "Volunteer Management System", "T10 Lifeline", "Publisher"],
+    "achievements": ["NUS Hack & Roll 2026 — Team Isolated Command"],
+    "journey": [
+      { "date": "2019", "title": "Started volunteering", "detail": "Student volunteer programmes and cybersecurity community events." },
+      { "date": "2024", "title": "Founded Isolated Command", "detail": "A youth technology collective — curiosity starts here." },
+      { "date": "2026", "title": "Shipped the platform network", "detail": "Publisher, ICGo, VMS and the community site network went live." }
+    ]
+  },
+  {
+    "slug": "glendon-ong",
+    "name": "Glendon ONG",
+    "organisation": "Isolated Command",
+    "role": "Developer",
+    "accent": "violet",
+    "tagline": "Hackathon teammate. Builder of T10 Lifeline.",
+    "contribution": "Co-built The T10 Lifeline at NUS Hack & Roll 2026 as part of Team Isolated Command — a simple, science-backed tool that helps people break out of brainrot phases.",
+    "skills": ["Programming", "Product", "Hackathons"],
+    "projects": ["T10 Lifeline"],
+    "achievements": ["NUS Hack & Roll 2026 — Team Isolated Command"],
+    "journey": [
+      { "date": "2026", "title": "Joined Isolated Command", "detail": "Teamed up for NUS Hack & Roll 2026." },
+      { "date": "2026", "title": "Shipped T10 Lifeline", "detail": "Fighting brainrot, one mind at a time." }
+    ]
+  },
+  {
+    "slug": "jia-jian",
+    "name": "Jia Jian",
+    "organisation": "Isolated Command",
+    "role": "Operations Volunteer",
+    "accent": "cyan",
+    "tagline": "Keeping community programmes running.",
+    "contribution": "Supports community events and volunteer operations — the coordination work that turns ideas into programmes people actually attend.",
+    "skills": ["Operations", "Community"],
+    "projects": ["Community Programmes"],
+    "achievements": [],
+    "journey": [
+      { "date": "2025", "title": "Joined Isolated Command", "detail": "Came for the projects, stayed for the people." }
+    ]
+  },
+  {
+    "slug": "keng-swee",
+    "name": "Keng Swee",
+    "organisation": "Isolated Command",
+    "role": "Designer",
+    "accent": "pink",
+    "tagline": "Making community tech feel human.",
+    "contribution": "Design support across community projects — visuals, materials and the small touches that make volunteer-built tools feel considered.",
+    "skills": ["Design", "Content"],
+    "projects": ["Community Programmes"],
+    "achievements": [],
+    "journey": [
+      { "date": "2025", "title": "Joined Isolated Command", "detail": "First contribution: event visuals." }
+    ]
+  }
+]

@@ -1,0 +1,176 @@
+{{/* ICDirectory product identity: same keycap family, violet leads.
+     Discovery = violet; lime and cyan stay as supporting accents.
+     Product-specific components (directory controls, profile blocks) live
+     here — everything else is stock Publisher. */}}
+<style>
+  :root {
+    --color-accent: #A78BFA;
+    --color-accent-press: #7C5CD6;
+    --glow-accent: rgba(167, 139, 250, 0.30);
+  }
+
+  /* wordmark: "IC" on a violet key, "Directory" in display type */
+  .navbar-brand {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--color-text-light) !important;
+    letter-spacing: -0.01em;
+  }
+  .navbar-brand::before {
+    content: 'IC';
+    display: inline-block;
+    background: #A78BFA;
+    color: var(--color-ink);
+    border-radius: 9px;
+    box-shadow: 0 3px 0 #7C5CD6;
+    padding: 1px 9px;
+    margin-right: 7px;
+    font-weight: 700;
+  }
+  .footer-brand a { font-family: var(--font-display); font-weight: 600; color: var(--color-text-light); }
+
+  /* explicit avatar accents (records choose their key colour) */
+  .ic-avatar--lime   { background: #7BE43C !important; }
+  .ic-avatar--violet { background: #A78BFA !important; }
+  .ic-avatar--cyan   { background: #38BDF8 !important; }
+  .ic-avatar--yellow { background: #FFE14D !important; }
+  .ic-avatar--pink   { background: #F97BC8 !important; }
+
+  /* VolunteerCard */
+  .volunteer-card-id {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .volunteer-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    border: 2px solid var(--color-ink);
+    box-shadow: 0 3px 0 var(--color-ink);
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    flex: 0 0 auto;
+  }
+  .volunteer-card-id .post-title { margin: 0 0 2px; }
+  .volunteer-role {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--color-accent);
+    margin: 0;
+  }
+  .volunteer-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+
+  /* SearchBar + FilterPanel */
+  .dir-controls { margin-bottom: 18px; }
+  .dir-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-bg-accent);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--key-radius);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.7);
+    padding: 4px 18px;
+    margin-bottom: 18px;
+    font-family: var(--font-mono);
+  }
+  .dir-search span { color: var(--color-accent); font-weight: 700; }
+  .dir-search input {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    outline: none;
+    color: var(--color-text-light);
+    font-family: var(--font-mono);
+    font-size: 15px;
+    height: 44px;
+  }
+  .dir-search input::placeholder { color: var(--color-text-muted); }
+  .dir-filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .dir-filter-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0 2px 0 8px;
+  }
+  .dir-filter-label:first-child { margin-left: 0; }
+  .dir-chip {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--color-text-muted);
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    border-radius: 9px;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+  .dir-chip:hover { color: var(--color-text-light); border-color: rgba(255, 255, 255, 0.35); }
+  .dir-chip.on {
+    color: var(--color-ink);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    box-shadow: 0 2px 0 var(--color-accent-press);
+  }
+  .dir-count {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 22px;
+  }
+  .dir-empty {
+    font-family: var(--font-mono);
+    color: var(--color-text-muted);
+    padding: 40px 0;
+  }
+
+  /* ProfilePage */
+  .profile-id { display: flex; align-items: center; gap: 26px; }
+  .profile-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    border-radius: 26px;
+    border: 2px solid var(--color-ink);
+    box-shadow: 0 5px 0 var(--color-ink);
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 700;
+    flex: 0 0 auto;
+  }
+  .profile-panel {
+    background: var(--color-bg-accent);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--key-radius-lg);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.7);
+    padding: 24px;
+  }
+  .profile-projects { margin: 0; padding: 0; }
+  .profile-projects li {
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    color: var(--color-text-light);
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-subtle);
+  }
+  .profile-projects li:last-child { border-bottom: 0; }
+  .profile-projects li::before { content: '# '; color: var(--color-accent); }
+
+  @media (max-width: 767px) {
+    .profile-id { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
+</style>
