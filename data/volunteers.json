@@ -5,6 +5,7 @@
     "organisation": "Isolated Command",
     "role": "Project Lead",
     "accent": "lime",
+    "photo": "images/volunteers/conanzhangtech.jpg",
     "tagline": "Building the platforms the community runs on.",
     "contribution": "Leads Isolated Command's digital infrastructure — the Publisher web platform, ICGo link shortener, and the Volunteer Management System. Turns community needs into small, auditable systems anyone can contribute to.",
     "skills": ["Cybersecurity", "Cloudflare", "Hugo", "Go", "AI"],

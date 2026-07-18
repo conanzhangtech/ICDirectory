@@ -11,7 +11,11 @@
   <span class="ic-key-index" aria-hidden="true">{{ printf "%02d" (add .index 1) }}</span>
 
   <div class="volunteer-card-id">
+    {{ if $v.photo }}
+    <span class="volunteer-avatar volunteer-avatar--photo"><img src="{{ $v.photo | relURL }}" alt="{{ $v.name }}" loading="lazy"></span>
+    {{ else }}
     <span class="ic-avatar ic-avatar--{{ $v.accent | default "lime" }} volunteer-avatar">{{ substr $v.name 0 1 | upper }}</span>
+    {{ end }}
     <div>
       <h3 class="post-title">{{ $v.name }}</h3>
       <p class="volunteer-role">&gt; {{ $v.role | lower }}</p>

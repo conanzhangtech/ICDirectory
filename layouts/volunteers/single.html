@@ -6,7 +6,11 @@
     <div class="ic-page-hero-grid">
       <div class="ic-page-hero-copy">
         <div class="profile-id reveal-up">
+          {{ if $v.photo }}
+          <span class="profile-avatar profile-avatar--photo"><img src="{{ $v.photo | relURL }}" alt="{{ .Title }}" fetchpriority="high"></span>
+          {{ else }}
           <span class="ic-avatar ic-avatar--{{ $v.accent | default "lime" }} profile-avatar">{{ substr .Title 0 1 | upper }}</span>
+          {{ end }}
           <div>
             <p class="ic-hero-eyebrow" style="margin-bottom:6px;">{{ $v.role | lower }}</p>
             <h1 class="ic-page-hero-title" style="margin-bottom:6px;">{{ .Title }}</h1>
