@@ -192,4 +192,164 @@
   @media (max-width: 767px) {
     .profile-id { flex-direction: column; align-items: flex-start; gap: 16px; }
   }
+
+  /* ── content-driven directory grid (no JS) ─────────────────────────── */
+  .dir-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+  }
+  @media (max-width: 520px) { .dir-grid { grid-template-columns: 1fr; } }
+
+  .dir-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    background: var(--color-bg-accent);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--key-radius-lg);
+    box-shadow: 0 4px 0 rgba(0,0,0,0.7);
+    padding: 28px 22px 22px;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.15s ease;
+  }
+  .dir-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.3); box-shadow: 0 7px 0 rgba(0,0,0,0.7); }
+  .dir-card-id {
+    position: absolute; top: 14px; right: 16px;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+    color: var(--color-text-muted); opacity: 0.7;
+  }
+  .dir-card-photo {
+    width: 92px; height: 92px; border-radius: 26px;
+    border: 2px solid var(--color-ink); box-shadow: 0 4px 0 var(--color-ink);
+    overflow: hidden; display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; flex: 0 0 auto;
+  }
+  .dir-card-photo--lime { background:#7BE43C; } .dir-card-photo--violet { background:#A78BFA; }
+  .dir-card-photo--cyan { background:#38BDF8; } .dir-card-photo--pink { background:#F97BC8; }
+  .dir-card-photo--yellow { background:#FFE14D; } .dir-card-photo--orange { background:#FF9E57; }
+  .dir-card-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+  .dir-card-initial { font-family: var(--font-display); font-size: 38px; font-weight: 700; color: var(--color-ink); }
+  .dir-card-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--color-text-light); }
+  .dir-card-role { font-family: var(--font-mono); font-size: 12px; color: var(--color-accent); margin-top: 4px; }
+  .dir-card-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 12px; }
+  .dir-card-skills { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; margin-top: 12px; }
+  .dir-card-go { margin-top: 16px; font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--color-accent); }
+
+  .dir-badge {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.04em;
+    padding: 3px 9px; border-radius: 7px; text-decoration: none;
+    border: 1px solid var(--border-strong); color: var(--color-text-muted);
+  }
+  .dir-badge--division { border-color: rgba(56,189,248,0.5); color: #38BDF8; }
+  .dir-badge--team { border-color: rgba(167,139,250,0.5); color: #A78BFA; }
+  a.dir-badge--team:hover { background: rgba(167,139,250,0.12); }
+  .dir-skill {
+    font-family: var(--font-mono); font-size: 11px; color: var(--color-text-muted);
+    padding: 3px 9px; border: 1px solid var(--border-subtle); border-radius: 7px;
+  }
+  .dir-count { font-family: var(--font-mono); font-size: 12.5px; color: var(--color-text-muted); margin-bottom: 24px; }
+
+  /* ── volunteer profile (portfolio) ─────────────────────────────────── */
+  .profile-wrap { padding: 120px 0 80px; }
+  .profile-wrap .container { max-width: 920px; }
+
+  /* header band: big photo + identity, sitting on an elevated card */
+  .profile-head {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    background: var(--color-bg-accent);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--key-radius-lg);
+    box-shadow: 0 5px 0 rgba(0,0,0,0.7);
+    padding: 32px clamp(22px,3vw,40px);
+  }
+  .profile-photo {
+    width: 148px; height: 148px; border-radius: 34px; flex: 0 0 auto;
+    border: 2px solid var(--color-ink); box-shadow: 0 6px 0 var(--color-ink);
+    overflow: hidden; display: inline-flex; align-items: center; justify-content: center;
+  }
+  .profile-photo--lime { background:#7BE43C; } .profile-photo--violet { background:#A78BFA; }
+  .profile-photo--cyan { background:#38BDF8; } .profile-photo--pink { background:#F97BC8; }
+  .profile-photo--yellow { background:#FFE14D; } .profile-photo--orange { background:#FF9E57; }
+  .profile-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+  .profile-initial { font-family: var(--font-display); font-size: 60px; font-weight: 700; color: var(--color-ink); }
+  .profile-volid { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; color: var(--color-accent); }
+  .profile-name { font-family: var(--font-display); font-size: clamp(2rem,4.5vw,2.9rem); font-weight: 700; margin: 4px 0 6px; line-height: 1.05; }
+  .profile-designation { font-family: var(--font-mono); font-size: 14px; color: var(--color-text-muted); margin: 0 0 14px; }
+  .profile-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+  .profile-social { display: flex; gap: 16px; list-style: none; margin: 16px 0 0; padding: 0; }
+  .profile-social a { color: var(--color-text-muted); font-size: 19px; transition: color .15s ease; }
+  .profile-social a:hover { color: var(--color-accent); }
+
+  .profile-quote {
+    font-family: var(--font-display); font-style: italic;
+    font-size: clamp(18px,2.4vw,26px); line-height: 1.4;
+    color: var(--color-text-light); text-align: center;
+    max-width: 40ch; margin: 40px auto 44px;
+  }
+
+  /* quick facts strip */
+  .profile-facts { display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 56px; }
+  .profile-fact { flex: 1 1 260px; }
+  .profile-fact-label {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 12px;
+  }
+  .profile-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .profile-project {
+    font-family: var(--font-mono); font-size: 12.5px; text-decoration: none;
+    color: var(--color-accent); padding: 5px 12px; border-radius: 8px;
+    border: 1px solid rgba(123,228,60,0.4); transition: background .15s ease;
+  }
+  .profile-project:hover { background: rgba(123,228,60,0.12); }
+
+  /* body reads centered + wide; cert grid breaks out to fill */
+  .profile-body { max-width: none; margin: 0 auto; }
+  .profile-body h2 { text-align: left; }
+  .profile-back { margin-top: 40px; }
+
+  /* certificate cards — polished, uniform, real cover images */
+  .cert-group-label {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--color-accent);
+    margin: 40px 0 18px; font-weight: 700; opacity: 1;
+  }
+  .team-grid.cert-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;
+  }
+  .cert-card {
+    display: flex; flex-direction: column; text-decoration: none;
+    background: var(--color-bg-accent); border: 1px solid var(--border-strong);
+    border-radius: var(--key-radius-lg); box-shadow: 0 4px 0 rgba(0,0,0,0.7);
+    overflow: hidden; transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+  /* the theme tags .team-card with a "> join" verb — not for cert cards */
+  .cert-card::before { content: none !important; display: none !important; }
+  .cert-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.3); box-shadow: 0 7px 0 rgba(0,0,0,0.7); }
+  .cert-card .cert-cover {
+    aspect-ratio: 4/3; background: #fff; display: flex; align-items: center; justify-content: center;
+    overflow: hidden; margin: 0;
+  }
+  .cert-card .cert-cover img { width: 100%; height: 100%; object-fit: contain; padding: 12px; }
+  .cert-card .cert-icon {
+    aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+    font-size: 40px; color: var(--color-accent); background: rgba(123,228,60,0.06);
+  }
+  .cert-card .team-name {
+    font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--color-text-light);
+    margin: 14px 16px 2px; line-height: 1.3;
+  }
+  .cert-card .team-role {
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--color-text-muted);
+    margin: 0 16px 16px;
+  }
+
+  @media (max-width: 640px) {
+    .profile-head { flex-direction: column; text-align: center; align-items: center; }
+    .profile-badges, .profile-social { justify-content: center; }
+  }
 </style>

@@ -17,6 +17,11 @@ useResourceCacheWhen = 'fallback'
 [build.buildStats]
 enable = true
 
+# profiles embed cert-card HTML in markdown — allow raw HTML through goldmark
+[markup]
+[markup.goldmark.renderer]
+unsafe = true
+
 ############################# Params ####################################
 [params]
 logo = ""                       # suppress the theme's default banner logo

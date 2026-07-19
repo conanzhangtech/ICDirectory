@@ -1,6 +1,6 @@
 ---
 title: "The Directory"
 subtitle: "meet the people behind isolated command"
-description: "Volunteers, builders and contributors — searchable by name, role, skill and project."
+description: "The volunteers, builders, and contributors who make Isolated Command run. Tap a card to open their profile."
 layout: "list"
 ---

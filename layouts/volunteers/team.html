@@ -1,0 +1,60 @@
+{{ define "main" }}
+{{ $accent := .Params.accent | default "lime" }}
+
+{{/* Volunteer portfolio — one polished header band, then a wide reading column
+     for the profile body (About + certifications). Content-driven, no JS. */}}
+<section class="profile-wrap">
+  <div class="container">
+
+    {{/* ── header band ─────────────────────────────────────────────── */}}
+    <header class="profile-head reveal-up">
+      <span class="profile-photo profile-photo--{{ $accent }}">
+        {{ if .Params.photo }}<img src="{{ .Params.photo }}" alt="{{ .Params.name | default .Title }}">
+        {{ else }}<span class="profile-initial">{{ substr (.Params.name | default .Title) 0 1 | upper }}</span>{{ end }}
+      </span>
+      <div class="profile-head-copy">
+        {{ with .Params.volID }}<span class="profile-volid">{{ . }}</span>{{ end }}
+        <h1 class="profile-name">{{ .Params.name | default .Title }}</h1>
+        {{ with .Params.designation }}<p class="profile-designation">{{ . }}</p>{{ end }}
+        <div class="profile-badges">
+          {{ with .Params.division }}<span class="dir-badge dir-badge--division">{{ . }}</span>{{ end }}
+          {{ with .Params.teamName }}<a class="dir-badge dir-badge--team" href="https://isolatedcommand.com/our-organisation/the-operations/{{ $.Params.team }}/" target="_blank" rel="noopener">{{ . }}</a>{{ end }}
+        </div>
+        {{ with .Params.social }}
+        <ul class="profile-social">
+          {{ range . }}<li><a href="{{ .link | safeURL }}" aria-label="link"><i class="{{ .icon }}"></i></a></li>{{ end }}
+        </ul>
+        {{ end }}
+      </div>
+    </header>
+
+    {{ with .Params.quote }}<p class="profile-quote reveal-up d-1">&ldquo;{{ . }}&rdquo;</p>{{ end }}
+
+    {{/* ── quick facts strip ──────────────────────────────────────────── */}}
+    <div class="profile-facts reveal-up d-1">
+      {{ with .Params.skills }}
+      <div class="profile-fact">
+        <p class="profile-fact-label">skills</p>
+        <div class="profile-chips">{{ range . }}<span class="dir-skill">{{ . }}</span>{{ end }}</div>
+      </div>
+      {{ end }}
+      {{ with .Params.projects }}
+      <div class="profile-fact">
+        <p class="profile-fact-label">projects contributed</p>
+        <div class="profile-chips">
+          {{ range . }}<a class="profile-project" href="https://isolatedcommand.com/our-projects/{{ .id }}/" target="_blank" rel="noopener">{{ .name | default .id }}</a>{{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+
+    {{/* ── profile body: About + certifications ──────────────────────── */}}
+    <div class="profile-body post-content reveal-up d-2">
+      {{ .Content }}
+    </div>
+
+    <p class="profile-back"><a class="btn-view-more" href="{{ `volunteers/` | relLangURL }}">&larr; back to directory</a></p>
+
+  </div>
+</section>
+{{ end }}
