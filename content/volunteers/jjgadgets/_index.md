@@ -41,13 +41,3 @@ quote: "Tech Tyrant"
 ##Need to have a realistic plan adapt and improvise
 #Flash out a plan
 
-## **About**
-
-Glendon is a curious individual who tries his best at the things that he do. With a strong interest in digital forensics, he is eager to expose himself more in this industry to gain more experience. In his free time, he enjoys participating in CTFs.
- 
-Aside from digital forensics, Glendon has a small interest in game creation. Currently, he is practicing C# so that he can create a game using the Unity engine.
- 
-Outside of his technical pursuits, Glendon enjoys bouldering and petting cats.
- 
-0.0
-
