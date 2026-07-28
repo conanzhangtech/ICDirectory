@@ -28,7 +28,7 @@ social:
 - icon : "fa-brands fa-instagram"
   link : "https://social.jjgadgets.tech/@jj"
 
-- icon : "fa-brands fa-square-github"
+- icon : "fa-brands fa-github"
   link : "https://github.com/JJGadgets"
 
 quote: "Tech Tyrant"
