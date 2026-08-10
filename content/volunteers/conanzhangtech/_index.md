@@ -67,12 +67,12 @@ At his core, Conan believes that technical skills are most valuable when they ar
     <h4 class="team-name">Cyber Leadership Programme</h4>
     <p class="team-role">CLI / ISC2</p>
   </a>
-  <a class="team-card cert-card" href="md-102-Endpoint-Administrator-Associate-Microsoft">
+  <a class="team-card cert-card" href="md-102-endpoint-administrator-associate-microsoft">
     <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_md102.png" alt="MD-102 Endpoint Administrator Associate certificate" loading="lazy"></div>
     <h4 class="team-name">MD-102: Endpoint Administrator</h4>
     <p class="team-role">Microsoft</p>
   </a>
-  <a class="team-card cert-card" href="MD-700-Teams-Administrator-Associate-by-microsoft">
+  <a class="team-card cert-card" href="md-700-teams-administrator-associate-by-microsoft">
     <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_md700.png" alt="MD-700 Teams Administrator Associate certificate" loading="lazy"></div>
     <h4 class="team-name">MD-700: Teams Administrator</h4>
     <p class="team-role">Microsoft</p>

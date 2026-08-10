@@ -11,7 +11,10 @@ export default {
   async fetch(request, env, _ctx) {
     const url = new URL(request.url);
     let res = await env.ASSETS.fetch(request);
-    if (res.status === 404) res = await env.ASSETS.fetch(new URL("/404.html", url.origin));
+    if (res.status === 404) {
+      const nf = await env.ASSETS.fetch(new URL("/404.html", url.origin));
+      res = new Response(nf.body, { status: 404, headers: nf.headers });
+    }
     const ct = res.headers.get("content-type") || "";
     if (ct.includes("text/html")) {
       res = new Response(res.body, res);
