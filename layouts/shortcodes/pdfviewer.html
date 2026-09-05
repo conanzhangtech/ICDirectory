@@ -1,61 +1,55 @@
-{{/* pdfviewer — click-to-load PDF embed.
+{{/* pdfviewer — certificate preview + link to the source PDF.
 
      Overrides the theme shortcode of the same name, keeping its signature
-     (src / width / height) so no content had to change. The theme version
-     emitted a bare <iframe>, which made every cert page pull its full PDF
-     from assets.isolatedcommand.com on load, whether or not the visitor
-     ever scrolled to it. This renders a lightweight placeholder instead and
-     only attaches the iframe on click.
+     (src / width / height) so no content had to change.
 
-     Without JS the placeholder still shows a working direct link, so the
-     PDF is never unreachable. */}}
+     The theme version framed the PDF directly (<iframe src="…​.pdf">), and so
+     did the click-to-load facade that replaced it. Both hit the same wall:
+     assets.isolatedcommand.com refuses to be framed, so the embed renders as
+     "refused to connect" no matter when the iframe is attached. Framing is
+     therefore off the table until that host sends a frame-ancestors policy
+     allowing directory.isolatedcommand.com.
+
+     Instead the page previews the certificate image it already has — the same
+     asset the profile card uses, so it costs nothing extra to serve — and
+     links out to the PDF. Pages with no image (`cert.image` empty) get the
+     link on its own. Nothing here can be blocked by a framing policy.
+
+     If the asset host is later configured to allow framing and an inline
+     viewer is wanted back, this is the only file that needs to change. */}}
 
 {{- $src := .Get "src" -}}
-{{- $width := .Get "width" | default "100%" -}}
-{{- $height := .Get "height" | default "600" -}}
-{{- $id := printf "pdf-%s" (substr (sha256 $src) 0 10) -}}
-{{- $file := path.Base $src -}}
+{{- $page := .Page -}}
+{{- $img := "" -}}
+{{- with $page.Params.cert -}}
+  {{- with .image -}}
+    {{- $slug := path.Base $page.Parent.RelPermalink -}}
+    {{- $path := printf "images/awardsandachievements/%s/%s" $slug . -}}
+    {{- $img = resources.Get $path -}}
+    {{- if not $img }}{{ warnf "pdfviewer on %s: image not found at assets/%s" $page.Path $path }}{{ end -}}
+  {{- end -}}
+{{- end -}}
 
-<div class="pdf-embed" id="{{ $id }}" data-pdf-src="{{ $src }}" data-pdf-height="{{ $height }}"
-     style="width:{{ $width }};">
-  <div class="pdf-embed-facade">
-    <i class="fas fa-file-pdf pdf-embed-icon" aria-hidden="true"></i>
-    <p class="pdf-embed-name">{{ $file }}</p>
-    <button type="button" class="pdf-embed-btn" data-pdf-load>Load PDF preview</button>
-    <p class="pdf-embed-alt">
-      or <a href="{{ $src }}" target="_blank" rel="noopener">open in a new tab &rarr;</a>
-    </p>
-  </div>
+<div class="cert-doc">
+  {{- with $img }}
+  {{ $p := .Resize "1000x webp q78" }}
+  <a class="cert-doc-preview" href="{{ $src }}" target="_blank" rel="noopener">
+    <img src="{{ $p.RelPermalink }}" alt="{{ $page.LinkTitle }} certificate" loading="lazy" decoding="async">
+  </a>
+  {{- end }}
+  <p class="cert-doc-actions">
+    <a class="cert-doc-btn" href="{{ $src }}" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf" aria-hidden="true"></i> Open the full certificate (PDF)
+    </a>
+  </p>
 </div>
 
 <style>
-.pdf-embed{margin:1rem 0;border:1px solid rgba(128,128,128,.35);border-radius:10px;overflow:hidden}
-.pdf-embed-facade{display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:.5rem;padding:2.5rem 1rem;text-align:center}
-.pdf-embed-icon{font-size:2rem;opacity:.6}
-.pdf-embed-name{margin:0;font-size:.85rem;opacity:.7;word-break:break-all}
-.pdf-embed-btn{cursor:pointer;padding:.55rem 1.1rem;border-radius:6px;
-  border:1px solid currentColor;background:transparent;color:inherit;font:inherit}
-.pdf-embed-btn:hover{opacity:.75}
-.pdf-embed-alt{margin:0;font-size:.85rem;opacity:.7}
-.pdf-embed iframe{display:block;width:100%;border:0}
+.cert-doc{margin:1rem 0}
+.cert-doc-preview{display:block;border:1px solid rgba(128,128,128,.3);border-radius:10px;overflow:hidden}
+.cert-doc-preview img{display:block;width:100%;height:auto}
+.cert-doc-actions{margin:.75rem 0 0}
+.cert-doc-btn{display:inline-block;padding:.55rem 1.1rem;border:1px solid currentColor;
+  border-radius:6px;text-decoration:none}
+.cert-doc-btn:hover{opacity:.75}
 </style>
-
-<script>
-(function () {
-  if (window.__pdfEmbedInit) return;
-  window.__pdfEmbedInit = true;
-  document.addEventListener('click', function (e) {
-    var btn = e.target.closest('[data-pdf-load]');
-    if (!btn) return;
-    var box = btn.closest('.pdf-embed');
-    if (!box) return;
-    var frame = document.createElement('iframe');
-    frame.src = box.dataset.pdfSrc;
-    frame.height = box.dataset.pdfHeight;
-    frame.loading = 'lazy';
-    frame.title = 'PDF preview';
-    box.replaceChildren(frame);
-  });
-})();
-</script>

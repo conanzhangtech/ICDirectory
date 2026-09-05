@@ -87,12 +87,14 @@
               {{ $x1 := .Resize (printf "%dx webp q%d" $t.w1x $t.quality) }}
               {{ $x2 := .Resize (printf "%dx webp q%d" $t.w2x $t.quality) }}
               <div class="cert-cover">
-                {{/* No width/height attrs on purpose: the theme owns
-                     .cert-cover img sizing and this repo can't build against
-                     it, so intrinsic attrs risk fighting its rules. Safe to
-                     add (they'd cut layout shift) once that CSS is checked. */}}
+                {{/* Intrinsic dimensions are safe here: the theme pins
+                     .cert-card .cert-cover img to width/height 100% with
+                     object-fit:contain inside a 4/3 box, so its CSS wins on
+                     display and these only feed the aspect-ratio hint that
+                     reserves space before the image decodes. */}}
                 <img src="{{ $x1.RelPermalink }}"
                      srcset="{{ $x1.RelPermalink }} 1x, {{ $x2.RelPermalink }} 2x"
+                     width="{{ $x1.Width }}" height="{{ $x1.Height }}"
                      alt="{{ $name }} certificate" loading="lazy" decoding="async">
               </div>
             {{ else }}
