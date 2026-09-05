@@ -6,6 +6,14 @@ lastmod: 2023-10-01T00:00:00
 author: ["conanzhangtech"]
 layout: "faq"
 draft: false
+weight: 30
+
+# ── Certificate card (rendered by layouts/volunteers/team.html) ──
+cert:
+  name: "Certified in Cybersecurity (CC)"
+  issuer: "ISC2"
+  image: "certificate_CCISC2.png"
+  group: "certifications"
 ---
 
 > ### **Issuer**
@@ -53,5 +61,4 @@ draft: false
 > <hr>
 > 
 > 
-> Unable to view? [Click Here](https://www.credly.com/badges/7e9ce762-1eca-4787-9cff-6639c91cd3c6/public_url)
-> <div data-iframe-width="100%" data-iframe-height="250" data-share-badge-id="7e9ce762-1eca-4787-9cff-6639c91cd3c6" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+> {{< credly id="7e9ce762-1eca-4787-9cff-6639c91cd3c6" >}}

@@ -6,6 +6,14 @@ lastmod: 2025-05-07T00:00:00
 author: ["conanzhangtech"]
 layout: "faq"
 draft: false
+weight: 70
+
+# ── Certificate card (rendered by layouts/volunteers/team.html) ──
+cert:
+  name: "MD-700: Teams Administrator"
+  issuer: "Microsoft"
+  image: "certificate_md700.png"
+  group: "certifications"
 ---
 
 > ### **Issuer**

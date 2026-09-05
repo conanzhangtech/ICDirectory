@@ -6,6 +6,14 @@ lastmod: 2020-01-01T00:00:00
 author: ["conanzhangtech"]
 layout: "faq"
 draft: false
+weight: 80
+
+# ── Certificate card (rendered by layouts/volunteers/team.html) ──
+cert:
+  name: "Volunteer Recognition — Gold Tier"
+  issuer: "AiSP & CSA"
+  image: "certificate_svrpgold.png"
+  group: "certifications"
 ---
 
 > ### **Issuer**

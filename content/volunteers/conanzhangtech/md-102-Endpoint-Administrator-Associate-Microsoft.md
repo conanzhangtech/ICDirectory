@@ -6,6 +6,14 @@ lastmod: 2025-05-02T00:00:00
 author: ["conanzhangtech"]
 layout: "faq"
 draft: false
+weight: 60
+
+# ── Certificate card (rendered by layouts/volunteers/team.html) ──
+cert:
+  name: "MD-102: Endpoint Administrator"
+  issuer: "Microsoft"
+  image: "certificate_md102.png"
+  group: "certifications"
 ---
 
 > ### **Issuer**

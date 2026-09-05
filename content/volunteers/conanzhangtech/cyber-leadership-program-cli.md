@@ -6,6 +6,14 @@ lastmod: 2025-06-09T00:00:00
 author: ["conanzhangtech"]
 layout: "faq"
 draft: false
+weight: 50
+
+# ── Certificate card (rendered by layouts/volunteers/team.html) ──
+cert:
+  name: "Cyber Leadership Programme"
+  issuer: "CLI / ISC2"
+  image: "certificate_CLPISC2.png"
+  group: "certifications"
 ---
 
 > ### **Issuer**
@@ -52,5 +60,4 @@ draft: false
 > <hr>
 > 
 >
-> Unable to view? [Click Here](https://www.credly.com/badges/1dc36279-4cf1-4740-9839-d974e7e0431e/public_url)
-> <div data-iframe-width="100%" data-iframe-height="250" data-share-badge-id="1dc36279-4cf1-4740-9839-d974e7e0431e" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+> {{< credly id="1dc36279-4cf1-4740-9839-d974e7e0431e" >}}
