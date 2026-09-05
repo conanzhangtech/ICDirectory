@@ -55,7 +55,20 @@ At his core, Conan believes that technical skills are most valuable when they ar
 
 *A collection of industry certifications, hackathon participations, and community volunteering recognitions.*
 
+
 <p class="cert-group-label">Industry Certifications</p>
+
+
+<div class="team-grid cert-grid">
+  <a class="team-card cert-card" href="certified-in-cybersecurity-isc2">
+    <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_awscloudquestcloudpractitioner.png" alt="certificate_awscloudquestcloudpractitioner" loading="lazy"></div>
+    <h4 class="team-name">AWS Cloud Quest - Cloud Practitioner</h4>
+    <p class="team-role">Amazon Web Services (AWS)</p>
+    <div class="team-grid cert-grid">
+  <a class="team-card cert-card" href="certified-in-cybersecurity-isc2">
+    <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_awscloudquestcloudpractitioner.png" alt="certificate_awscloudquestcloudpractitioner" loading="lazy"></div>
+    <h4 class="team-name">Cloudflare One Essentials (for Partners)</h4>
+    <p class="team-role">Cloudflare University</p>
 <div class="team-grid cert-grid">
   <a class="team-card cert-card" href="certified-in-cybersecurity-isc2">
     <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_CCISC2.png" alt="Certified in Cybersecurity certificate" loading="lazy"></div>
