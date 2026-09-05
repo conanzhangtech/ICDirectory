@@ -65,7 +65,7 @@ At his core, Conan believes that technical skills are most valuable when they ar
 </a>
 
   <a class="team-card cert-card" href="certified-in-cybersecurity-isc2">
-    <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_awscloudquestcloudpractitioner.png" alt="certificate_awscloudquestcloudpractitioner" loading="lazy"></div>
+    <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_cfucloudflareonessential.png" alt="certificate_awscloudquestcloudpractitioner" loading="lazy"></div>
     <h4 class="team-name">Cloudflare One Essentials (for Partners)</h4>
     <p class="team-role">Cloudflare University</p>
 </a>
