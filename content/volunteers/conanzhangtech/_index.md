@@ -64,14 +64,14 @@ At his core, Conan believes that technical skills are most valuable when they ar
     <p class="team-role">Amazon Web Services (AWS)</p>
 </a>
 
-  <a class="team-card cert-card" href="certified-in-cybersecurity-isc2">
+  <a class="team-card cert-card" href="cloudflare-cloudflareoneessential">
     <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_cfucloudflareonessential.png" alt="certificate_awscloudquestcloudpractitioner" loading="lazy"></div>
     <h4 class="team-name">Cloudflare One Essentials (for Partners)</h4>
     <p class="team-role">Cloudflare University</p>
 </a>
 
 <div class="team-grid cert-grid">
-  <a class="team-card cert-card" href="cloudflare-cloudflareoneessential">
+  <a class="team-card cert-card" href="certified-in-cybersecurity-isc2">
     <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_CCISC2.png" alt="Certified in Cybersecurity certificate" loading="lazy"></div>
     <h4 class="team-name">Certified in Cybersecurity (CC)</h4>
     <p class="team-role">ISC2</p>
