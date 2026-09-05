@@ -77,6 +77,13 @@ That's the whole change — the card appears, in the right group, linked to the
 page. Because the card's link is the page's own permalink it cannot point at
 the wrong cert, and a cert page can't be left off the profile by accident.
 
+If the cert has a Credly badge, add it with the badge UUID from its Credly
+share page — one id drives both the embed and the fallback link:
+
+```
+{{< credly id="7e9ce762-1eca-4787-9cff-6639c91cd3c6" >}}
+```
+
 Group ids and their headings live under `[[params.certGroups]]` in `hugo.toml`;
 thumbnail sizes under `[params.certThumb]`. A misspelled `image:` warns during
 the build and falls back to the icon instead of shipping a broken image.

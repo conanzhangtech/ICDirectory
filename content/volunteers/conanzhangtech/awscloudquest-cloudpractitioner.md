@@ -41,5 +41,4 @@ cert:
 > <hr>
 > 
 > 
-> Unable to view? [Click Here](https://www.credly.com/badges/a5e3fff9-3f8d-4123-a077-fb12c1966140/public_url)
-> <div data-iframe-width="100%" data-iframe-height="250" data-share-badge-id="7e9ce762-1eca-4787-9cff-6639c91cd3c6" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+> {{< credly id="a5e3fff9-3f8d-4123-a077-fb12c1966140" >}}

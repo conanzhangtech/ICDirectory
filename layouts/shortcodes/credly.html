@@ -1,0 +1,26 @@
+{{/* credly — one badge id, one source of truth.
+
+     The badge used to be pasted in as two independent snippets: a "Click Here"
+     link carrying one id and a <div data-share-badge-id> carrying another.
+     Nothing tied them together, so they drifted — one badge ended up embedded
+     on four different cert pages while each link pointed somewhere else.
+
+     Usage:  {{< credly id="7e9ce762-1eca-4787-9cff-6639c91cd3c6" >}}
+
+     Both the embed and the fallback link are derived from `id`, so they can no
+     longer disagree. The upstream embed.js renders into the div; the link
+     stays visible for anyone the script doesn't reach. */}}
+
+{{- $id := .Get "id" -}}
+{{- if not $id -}}
+  {{- errorf "credly shortcode on %s: missing required `id` (the badge UUID from its Credly share page)" .Page.File.Path -}}
+{{- end -}}
+{{- $url := printf "https://www.credly.com/badges/%s/public_url" $id -}}
+
+<div class="credly-badge"
+     data-iframe-width="100%"
+     data-iframe-height="250"
+     data-share-badge-id="{{ $id }}"
+     data-share-badge-host="https://www.credly.com"></div>
+<p class="credly-badge-alt">Unable to view? <a href="{{ $url }}" target="_blank" rel="noopener">Open this badge on Credly &rarr;</a></p>
+<script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
