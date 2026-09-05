@@ -24,3 +24,23 @@
      data-share-badge-host="https://www.credly.com"></div>
 <p class="credly-badge-alt">Unable to view? <a href="{{ $url }}" target="_blank" rel="noopener">Open this badge on Credly &rarr;</a></p>
 <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
+
+<style>
+/* Credly draws the badge on a transparent ground with dark text, which is
+   invisible against this theme's dark background. Give it the light surface
+   it expects. min-height matches data-iframe-height so the injected iframe
+   doesn't shift the page when embed.js lands. */
+.credly-badge{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:10px;
+  padding:10px;
+  max-width:340px;
+  min-height:270px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.credly-badge iframe{display:block;max-width:100%;border:0}
+.credly-badge-alt{margin:.65rem 0 0;font-size:.9rem}
+</style>
