@@ -6,6 +6,14 @@ lastmod: 2025-06-09T00:00:00
 author: ["conanzhangtech"]
 layout: "faq"
 draft: false
+weight: 50
+
+# ── Certificate card (rendered by layouts/volunteers/team.html) ──
+cert:
+  name: "Cyber Leadership Programme"
+  issuer: "CLI / ISC2"
+  image: "certificate_CLPISC2.png"
+  group: "certifications"
 ---
 
 > ### **Issuer**

@@ -34,6 +34,22 @@ footer_status = "directory online"
 navbar_fixed = false
 particle_grid = true
 
+# Certificate card groups, in display order. A cert page joins a group by
+# setting `cert.group` to one of these ids; unknown ids simply don't render.
+[[params.certGroups]]
+id = "certifications"
+label = "Industry Certifications"
+[[params.certGroups]]
+id = "community"
+label = "Hackathons & Community Involvement"
+
+# Thumbnail widths (px) generated for cert cards. 1x is the src, 2x the retina
+# srcset entry. Both are WebP — the source PNGs live in assets/ and never ship.
+[params.certThumb]
+w1x = 400
+w2x = 800
+quality = 72
+
 [params.palette]
 enable = true
 trigger_label = "find"

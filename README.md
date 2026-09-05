@@ -48,6 +48,39 @@ Append a record to `data/volunteers.json`:
 Commit — the profile page, directory card, filters and homepage stats all
 update automatically.
 
+## Adding a certificate
+
+Cards on a volunteer's profile are generated from the cert pages themselves —
+there is no HTML to copy. To add one:
+
+1. Drop the source image in `assets/images/awardsandachievements/<volunteer>/`.
+   Any reasonable size is fine; Hugo emits the WebP thumbnails and the full-size
+   original is never published.
+2. Create `content/volunteers/<volunteer>/<cert-slug>.md` with a `cert:` block:
+
+```yaml
+---
+title: "Certified in Cybersecurity by ISC2"
+layout: "faq"
+draft: false
+weight: 30                    # position within the group; tens leave room to insert
+
+cert:
+  name: "Certified in Cybersecurity (CC)"   # card title
+  issuer: "ISC2"                            # card subtitle
+  image: "certificate_CCISC2.png"           # filename only; "" → award icon
+  group: certifications                     # id from params.certGroups in hugo.toml
+---
+```
+
+That's the whole change — the card appears, in the right group, linked to the
+page. Because the card's link is the page's own permalink it cannot point at
+the wrong cert, and a cert page can't be left off the profile by accident.
+
+Group ids and their headings live under `[[params.certGroups]]` in `hugo.toml`;
+thumbnail sizes under `[params.certThumb]`. A misspelled `image:` warns during
+the build and falls back to the icon instead of shipping a broken image.
+
 ## Development
 
 ```bash

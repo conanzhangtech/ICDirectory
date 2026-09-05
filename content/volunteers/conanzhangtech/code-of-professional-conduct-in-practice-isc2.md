@@ -6,6 +6,14 @@ lastmod: 2026-08-29T00:00:00
 author: ["conanzhangtech"]
 layout: "faq"
 draft: false
+weight: 40
+
+# ── Certificate card (rendered by layouts/volunteers/team.html) ──
+cert:
+  name: "Code of Professional Conduct in Practice"
+  issuer: "ISC2"
+  image: ""            # no image → falls back to the award icon
+  group: "certifications"
 ---
 
 > ### **Issuer**

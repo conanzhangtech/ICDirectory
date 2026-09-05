@@ -48,10 +48,65 @@
       {{ end }}
     </div>
 
-    {{/* ── profile body: About + certifications ──────────────────────── */}}
+    {{/* ── profile body: About ───────────────────────────────────────── */}}
     <div class="profile-body post-content reveal-up d-2">
       {{ .Content }}
     </div>
+
+    {{/* ── certifications: built from the child cert pages ────────────
+         Every .md beside this _index.md that carries a `cert:` block in its
+         front matter becomes a card. Nothing here is hand-written per cert —
+         add a page, get a card; the link is always the page's own permalink,
+         so a card can never point at the wrong cert. */}}
+    {{ $certs := where .Pages "Params.cert" "!=" nil }}
+    {{ with $certs }}
+    {{ $slug := path.Base $.RelPermalink }}
+    {{ $t := $.Site.Params.certThumb }}
+    <div class="profile-certs post-content reveal-up d-2">
+      <h2><strong>Certifications &amp; Achievements</strong></h2>
+      <p><em>{{ $.Params.certIntro | default "A collection of industry certifications, hackathon participations, and community volunteering recognitions." }}</em></p>
+
+      {{ range $group := $.Site.Params.certGroups }}
+        {{ $inGroup := where $certs "Params.cert.group" $group.id }}
+        {{ with $inGroup }}
+        <p class="cert-group-label">{{ $group.label }}</p>
+        <div class="team-grid cert-grid">
+          {{ range sort . "Weight" }}
+          {{ $name := .Params.cert.name | default .LinkTitle }}
+          <a class="team-card cert-card" href="{{ .RelPermalink }}">
+            {{/* Resolve the source PNG out of assets/ and emit WebP thumbs.
+                 A missing/renamed file warns at build time and falls back to
+                 the icon rather than shipping a broken <img>. */}}
+            {{ $img := "" }}
+            {{ with .Params.cert.image }}
+              {{ $path := printf "images/awardsandachievements/%s/%s" $slug . }}
+              {{ $img = resources.Get $path }}
+              {{ if not $img }}{{ warnf "cert card %q: image not found at assets/%s" $name $path }}{{ end }}
+            {{ end }}
+            {{ with $img }}
+              {{ $x1 := .Resize (printf "%dx webp q%d" $t.w1x $t.quality) }}
+              {{ $x2 := .Resize (printf "%dx webp q%d" $t.w2x $t.quality) }}
+              <div class="cert-cover">
+                {{/* No width/height attrs on purpose: the theme owns
+                     .cert-cover img sizing and this repo can't build against
+                     it, so intrinsic attrs risk fighting its rules. Safe to
+                     add (they'd cut layout shift) once that CSS is checked. */}}
+                <img src="{{ $x1.RelPermalink }}"
+                     srcset="{{ $x1.RelPermalink }} 1x, {{ $x2.RelPermalink }} 2x"
+                     alt="{{ $name }} certificate" loading="lazy" decoding="async">
+              </div>
+            {{ else }}
+              <div class="cert-icon"><i class="fas fa-award"></i></div>
+            {{ end }}
+            <h4 class="team-name">{{ $name }}</h4>
+            <p class="team-role">{{ .Params.cert.issuer }}</p>
+          </a>
+          {{ end }}
+        </div>
+        {{ end }}
+      {{ end }}
+    </div>
+    {{ end }}
 
     <p class="profile-back"><a class="btn-view-more" href="{{ `volunteers/` | relLangURL }}">&larr; back to directory</a></p>
 

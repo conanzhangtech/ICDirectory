@@ -6,6 +6,14 @@ lastmod: 2023-10-01T00:00:00
 author: ["conanzhangtech"]
 layout: "faq"
 draft: false
+weight: 30
+
+# ── Certificate card (rendered by layouts/volunteers/team.html) ──
+cert:
+  name: "Certified in Cybersecurity (CC)"
+  issuer: "ISC2"
+  image: "certificate_CCISC2.png"
+  group: "certifications"
 ---
 
 > ### **Issuer**

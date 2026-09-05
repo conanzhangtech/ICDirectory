@@ -6,6 +6,14 @@ lastmod: 2020-12-04T00:00:00
 author: ["conanzhangtech"]
 layout: "faq"
 draft: false
+weight: 50
+
+# ── Certificate card (rendered by layouts/volunteers/team.html) ──
+cert:
+  name: "10th Singapore Cyber Conquest"
+  issuer: "CSA"
+  image: "certificate_sicw10thcyberconquest2019.png"
+  group: "community"
 ---
 
 > ### **Issuer**

@@ -6,6 +6,14 @@ lastmod: 2021-04-01T00:00:00
 author: ["conanzhangtech"]
 layout: "faq"
 draft: false
+weight: 20
+
+# ── Certificate card (rendered by layouts/volunteers/team.html) ──
+cert:
+  name: "CCA — Distinction"
+  issuer: "Temasek Polytechnic"
+  image: ""            # no image → falls back to the award icon
+  group: "community"
 ---
 
 > ### **Issuer**

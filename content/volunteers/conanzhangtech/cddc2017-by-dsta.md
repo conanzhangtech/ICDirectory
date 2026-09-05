@@ -6,6 +6,14 @@ lastmod: 2017-06-01T00:00:00
 author: ["conanzhangtech"]
 layout: "faq"
 draft: false
+weight: 30
+
+# ── Certificate card (rendered by layouts/volunteers/team.html) ──
+cert:
+  name: "Cyber Defender Discovery Camp"
+  issuer: "DSTA"
+  image: "certificate_cddc2017.png"
+  group: "community"
 ---
 
 > ### **Issuer**

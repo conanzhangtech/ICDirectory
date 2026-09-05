@@ -6,6 +6,14 @@ lastmod: 2020-08-07T00:00:00
 author: ["conanzhangtech"]
 layout: "faq"
 draft: false
+weight: 20
+
+# ── Certificate card (rendered by layouts/volunteers/team.html) ──
+cert:
+  name: "Cloudflare One Essentials (for Partners)"
+  issuer: "Cloudflare University"
+  image: "certificate_cfucloudflareonessential.png"
+  group: "certifications"
 ---
 
 > ### **Issuer**

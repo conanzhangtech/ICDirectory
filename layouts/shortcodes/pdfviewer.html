@@ -1,0 +1,61 @@
+{{/* pdfviewer — click-to-load PDF embed.
+
+     Overrides the theme shortcode of the same name, keeping its signature
+     (src / width / height) so no content had to change. The theme version
+     emitted a bare <iframe>, which made every cert page pull its full PDF
+     from assets.isolatedcommand.com on load, whether or not the visitor
+     ever scrolled to it. This renders a lightweight placeholder instead and
+     only attaches the iframe on click.
+
+     Without JS the placeholder still shows a working direct link, so the
+     PDF is never unreachable. */}}
+
+{{- $src := .Get "src" -}}
+{{- $width := .Get "width" | default "100%" -}}
+{{- $height := .Get "height" | default "600" -}}
+{{- $id := printf "pdf-%s" (substr (sha256 $src) 0 10) -}}
+{{- $file := path.Base $src -}}
+
+<div class="pdf-embed" id="{{ $id }}" data-pdf-src="{{ $src }}" data-pdf-height="{{ $height }}"
+     style="width:{{ $width }};">
+  <div class="pdf-embed-facade">
+    <i class="fas fa-file-pdf pdf-embed-icon" aria-hidden="true"></i>
+    <p class="pdf-embed-name">{{ $file }}</p>
+    <button type="button" class="pdf-embed-btn" data-pdf-load>Load PDF preview</button>
+    <p class="pdf-embed-alt">
+      or <a href="{{ $src }}" target="_blank" rel="noopener">open in a new tab &rarr;</a>
+    </p>
+  </div>
+</div>
+
+<style>
+.pdf-embed{margin:1rem 0;border:1px solid rgba(128,128,128,.35);border-radius:10px;overflow:hidden}
+.pdf-embed-facade{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.5rem;padding:2.5rem 1rem;text-align:center}
+.pdf-embed-icon{font-size:2rem;opacity:.6}
+.pdf-embed-name{margin:0;font-size:.85rem;opacity:.7;word-break:break-all}
+.pdf-embed-btn{cursor:pointer;padding:.55rem 1.1rem;border-radius:6px;
+  border:1px solid currentColor;background:transparent;color:inherit;font:inherit}
+.pdf-embed-btn:hover{opacity:.75}
+.pdf-embed-alt{margin:0;font-size:.85rem;opacity:.7}
+.pdf-embed iframe{display:block;width:100%;border:0}
+</style>
+
+<script>
+(function () {
+  if (window.__pdfEmbedInit) return;
+  window.__pdfEmbedInit = true;
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-pdf-load]');
+    if (!btn) return;
+    var box = btn.closest('.pdf-embed');
+    if (!box) return;
+    var frame = document.createElement('iframe');
+    frame.src = box.dataset.pdfSrc;
+    frame.height = box.dataset.pdfHeight;
+    frame.loading = 'lazy';
+    frame.title = 'PDF preview';
+    box.replaceChildren(frame);
+  });
+})();
+</script>
