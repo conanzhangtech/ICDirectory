@@ -58,28 +58,31 @@ At his core, Conan believes that technical skills are most valuable when they ar
 
 <p class="cert-group-label">Industry Certifications</p>
 
-
-<div class="team-grid cert-grid">
-  <a class="team-card cert-card" href="certified-in-cybersecurity-isc2">
+  <a class="team-card cert-card" href="awscloudquest-cloudpractitioner">
     <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_awscloudquestcloudpractitioner.png" alt="certificate_awscloudquestcloudpractitioner" loading="lazy"></div>
     <h4 class="team-name">AWS Cloud Quest - Cloud Practitioner</h4>
     <p class="team-role">Amazon Web Services (AWS)</p>
-    <div class="team-grid cert-grid">
+</a>
+
   <a class="team-card cert-card" href="certified-in-cybersecurity-isc2">
     <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_awscloudquestcloudpractitioner.png" alt="certificate_awscloudquestcloudpractitioner" loading="lazy"></div>
     <h4 class="team-name">Cloudflare One Essentials (for Partners)</h4>
     <p class="team-role">Cloudflare University</p>
+</a>
+
 <div class="team-grid cert-grid">
-  <a class="team-card cert-card" href="certified-in-cybersecurity-isc2">
+  <a class="team-card cert-card" href="cloudflare-cloudflareoneessential">
     <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_CCISC2.png" alt="Certified in Cybersecurity certificate" loading="lazy"></div>
     <h4 class="team-name">Certified in Cybersecurity (CC)</h4>
     <p class="team-role">ISC2</p>
   </a>
+
   <a class="team-card cert-card" href="cyber-leadership-program-cli">
     <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_CLPISC2.png" alt="Cyber Leadership Program certificate" loading="lazy"></div>
     <h4 class="team-name">Cyber Leadership Programme</h4>
     <p class="team-role">CLI / ISC2</p>
   </a>
+
   <a class="team-card cert-card" href="md-102-endpoint-administrator-associate-microsoft">
     <div class="cert-cover"><img src="/images/awardsandachievements/conanzhangtech/certificate_md102.png" alt="MD-102 Endpoint Administrator Associate certificate" loading="lazy"></div>
     <h4 class="team-name">MD-102: Endpoint Administrator</h4>
