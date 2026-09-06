@@ -12,7 +12,7 @@ weight: 25
 cert:
   name: "Build Google Cloud Infrastructure for AWS Professionals"
   issuer: "Google Cloud"
-  image: ""            # no image → falls back to the award icon
+  image: "certificate_googleskills1.png"
   group: "certifications"
 ---
 
